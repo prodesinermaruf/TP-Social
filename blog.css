@@ -1,0 +1,172 @@
+:root {
+  --light-bg: #f5f7fa;
+  --dark-bg: #1e1e2f;
+  --light-text: #222;
+  --dark-text: #f9f9f9;
+  --primary: #2563eb;
+  --primary-dark: #1e40af;
+  --card-light: #fff;
+  --card-dark: #2c2c3c;
+}
+
+/* 🌞 Light Default */
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  color: var(--light-text);
+  background: var(--light-bg);
+  transition: background 0.4s, color 0.4s;
+  overflow-x: hidden;
+}
+
+/* 🌙 Dark Mode */
+body.dark {
+  background: var(--dark-bg);
+  color: var(--dark-text);
+}
+
+/* 🏠 Header */
+header {
+  text-align: center;
+  background: linear-gradient(120deg, #3b82f6, #2563eb);
+  color: white;
+  padding: 2rem 1rem;
+  position: relative;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+header .header-left img {
+  position: absolute;
+  left: 15px;
+  top: 15px;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+header .header-left img:hover {
+  transform: scale(1.1);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.2rem;
+}
+
+header p {
+  margin-top: 0.5rem;
+  opacity: 0.9;
+}
+
+/* 🧩 Blog Cards */
+main {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.8rem;
+  padding: 2rem;
+}
+
+@media (max-width: 768px) {
+  main {
+    grid-template-columns: 1fr;
+  }
+}
+
+.blog-card {
+  background: var(--card-light);
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+body.dark .blog-card {
+  background: var(--card-dark);
+}
+
+.blog-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+}
+
+.blog-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.blog-card .content {
+  padding: 1.2rem;
+}
+
+.blog-card h2 {
+  margin: 0 0 0.5rem;
+  color: var(--primary);
+}
+
+.blog-card p {
+  font-size: 0.95rem;
+  color: #444;
+  line-height: 1.5;
+}
+
+body.dark .blog-card p {
+  color: #ddd;
+}
+
+/* 🔘 Button */
+button {
+  margin-top: 1rem;
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: var(--primary-dark);
+}
+
+/* 📘 Footer */
+footer {
+  text-align: center;
+  background: #1e3a8a;
+  color: white;
+  padding: 1rem 0;
+  font-size: 0.9rem;
+}
+
+body.dark footer {
+  background: #111a5a;
+}
+
+/* 📱 Responsive */
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 1.6rem;
+  }
+  main {
+    padding: 1rem;
+  }
+}
+header .header-left img {
+  position: absolute;
+  left: 15px;
+  top: 15px;
+  width: 45px;       /* 🔼 আগে ছিল 35px, এখন বড় করা হলো */
+  height: 45px;
+  cursor: pointer;
+  transition: transform 0.25s ease;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.15); /* একটু soft glow effect */
+  padding: 5px;
+}
+
+header .header-left img:hover {
+  transform: scale(1.12);
+  background: rgba(255, 255, 255, 0.25);
+}

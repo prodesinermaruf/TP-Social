@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <link rel="icon" type="image/png" href="image.png" />
+ <title>Class Chat Room</title>
+   <meta name="google" content="notranslate">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="chat.css" />
+</head>
+<body>
+  <div class="chat-container">
+    <header>
+      <div class="header-left">
+        <img src="home.png" alt="Home" id="homeBtn" />
+      </div>
+      <div class="header-title">Class Chat Room 💬</div>
+    </header>
+
+    <!-- 💭 Chat Messages -->
+    <div id="chatBox"></div>
+
+    <!-- 🖼️ Image Preview -->
+    <div id="imgPreviewContainer" class="hidden">
+      <img id="imgPreview" src="" alt="Preview" />
+      <button id="removeImg">×</button>
+    </div>
+
+    <!-- ✉️ Message Input -->
+    <footer>
+      <form id="chatForm">
+        <label for="imgInput" id="imgAdd">
+          <img src="addimg.png" alt="Add Image" />
+        </label>
+        <input type="file" id="imgInput" accept="image/*" hidden />
+        <input type="text" id="messageInput" placeholder="Type a message..." />
+        <button type="submit" id="sendBtn">
+          <img src="submit.png" alt="Send" />
+        </button>
+      </form>
+    </footer>
+  </div>
+
+  <script src="chat.js"></script>
+</body>
+</html>

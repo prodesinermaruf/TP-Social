@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <link rel="icon" type="image/png" href="image.png" />
+ <title>Ask Room</title>
+   <meta name="google" content="notranslate">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="ask.css" />
+</head>
+<body>
+  <div class="ask-container">
+    <header>
+      <div class="header-left">
+        <img src="home.png" alt="Home" id="homeBtn" />
+      </div>
+      <div class="header-title">Ask Room ❓</div>
+    </header>
+
+    <!-- 💭 Question List -->
+    <div id="askBox"></div>
+
+    <!-- 🖼️ Image Preview -->
+    <div id="imgPreviewContainer" class="hidden">
+      <img id="imgPreview" src="" alt="Preview" />
+      <button id="removeImg">×</button>
+    </div>
+
+    <!-- ✉️ Input -->
+    <footer>
+      <form id="askForm">
+        <label for="imgInput" id="imgAdd">
+          <img src="addimg.png" alt="Add Image" />
+        </label>
+        <input type="file" id="imgInput" accept="image/*" hidden />
+        <input type="text" id="questionInput" placeholder="Type your question..." />
+        <button type="submit" id="sendBtn">
+          <img src="submit.png" alt="Send" />
+        </button>
+      </form>
+    </footer>
+  </div>
+
+  <script src="ask.js"></script>
+</body>
+</html>

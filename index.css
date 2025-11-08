@@ -1,0 +1,210 @@
+/* ===============================
+   Global Scroll Disable
+   =============================== */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* 🚫 No scroll */
+  font-family: "Poppins", sans-serif;
+  color: #333;
+  background: url('login.jpg') no-repeat center center / cover;
+  background-attachment: fixed;
+}
+
+/* Dark mode overlay */
+body.dark-mode {
+  color: #fff;
+  background: rgba(0, 0, 0, 0.8) url('login.jpg') no-repeat center center / cover;
+  background-blend-mode: darken;
+}
+
+/* ===============================
+   Header
+   =============================== */
+header {
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 15px 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  position: relative;
+  z-index: 10;
+  backdrop-filter: blur(10px);
+}
+
+header .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.menu-icon {
+  cursor: pointer;
+  position: absolute;
+  left: 0;
+}
+
+.menu-icon span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 5px 0;
+  transition: 0.3s;
+}
+
+.title {
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* ===============================
+   Main Layout
+   =============================== */
+main {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  padding: 20px;
+}
+
+/* ===============================
+   Glowing Background Blur
+   =============================== */
+.background-blur {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 700px;
+  height: 700px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(135, 206, 250, 0.5) 0%, rgba(135, 206, 250, 0) 70%);
+  filter: blur(100px);
+  opacity: 0.8;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* ===============================
+   Login Container
+   =============================== */
+.login-container {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 40px 50px;
+  backdrop-filter: blur(25px);
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2);
+  width: 90%;
+  max-width: 420px;
+}
+
+body.dark-mode .login-container {
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+}
+
+/* ===============================
+   Dropdowns
+   =============================== */
+.selection-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  width: 100%;
+}
+
+select {
+  background-color: #fafafa;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 10px;
+  font-size: 1rem;
+  flex: 1;
+  min-width: 100px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+select:hover {
+  background-color: #f0f0f0;
+}
+
+/* ===============================
+   Buttons
+   =============================== */
+.enter-btn {
+  background-color: #3f3f3f;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 25px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  width: 100%;
+}
+
+.enter-btn:hover {
+  background-color: #2a2a2a;
+}
+
+/* ===============================
+   Student ID Section
+   =============================== */
+.student-id-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+}
+
+.id-input {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 12px;
+  font-size: 1rem;
+  width: 100%;
+  max-width: 280px;
+  text-align: center;
+  color: #555;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+}
+
+/* ===============================
+   Responsive
+   =============================== */
+@media (max-width: 768px) {
+  .background-blur {
+    width: 400px;
+    height: 400px;
+    filter: blur(70px);
+  }
+
+  .login-container {
+    padding: 25px 30px;
+    width: 95%;
+  }
+
+  .title {
+    font-size: 1rem;
+  }
+
+  select {
+    width: 100%;
+  }
+}

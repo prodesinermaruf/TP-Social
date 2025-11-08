@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" href="image.png" />
+ <title>Tangail Polytechnic Social Manager</title>
+   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="home.css" />
+</head>
+<body class="light">
+  <header>
+    <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+    <h1>Tangail Polytechnic Social Manager</h1>
+  </header>
+
+  <div class="container">
+    <!-- 📁 Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="profile">
+        <img src="profile.png" alt="Profile" class="profile-icon">
+
+        <p id="name" class="name">Student Name</p>
+        <p id="number" class="mobile">1030xxxxx</p>
+
+        <!-- 🎓 Popup for Student ID -->
+        <div id="studentIdPopup" class="student-id-popup">
+          <h1 id="realname">Your Name :Maruf <br>Student ID: 1030512002</h1>
+        </div>
+
+        <img src="settings.png" alt="Settings" class="settings-icon" id="settingsBtn" title="Settings">
+      </div>
+
+      <!-- Navigation buttons -->
+      <nav>
+        <button id="b12" class="active" onclick="loadPage('home-content.html', this)">🏠 Home</button>
+        <button onclick="loadPage('event.html', this)">📅 Class Events</button>
+        <button onclick="loadPage('announc.html', this)">📢 Announcements</button>
+        <button onclick="loadPage('chat.html', this)">💬 Chat Room</button>
+        <button onclick="loadPage('ask.html', this)">❓ Ask Questions</button>
+        <button onclick="loadPage('blog.html', this)">📰 Students Blog</button>
+      </nav>
+
+      <div class="settings-popup" id="settingsPopup">
+        <button onclick="setDarkMode()">🌙 Dark Mode</button>
+        <button onclick="setLightMode()">☀️ Light Mode</button>
+      </div>
+    </aside>
+
+    <!-- 🏠 Main Content -->
+    <main id="mainContent">
+      <div class="welcome"><strong id="welcome"> Welcome </strong>
+        <br><h2> Tangail Polytechnic Social Manager</h2>
+        <p>Select an option from the sidebar to begin.</p>
+      </div>
+    </main>
+  </div>
+
+  <!-- 🎛️ Sidebar Slide Button -->
+  <img src="slide.png" alt="Slide Button" class="slide-btn" onclick="toggleSidebar()">
+
+  <!-- 📜 Script -->
+  <script src="home.js"></script>
+
+  <!-- ⚙️ Popup JS -->
+  <script>
+    const nameEl = document.getElementById("name");
+    const numberEl = document.getElementById("number");
+    const popup = document.getElementById("studentIdPopup");
+
+    function showStudentId() {
+      popup.classList.add("show");
+      setTimeout(() => {
+        popup.classList.remove("show");
+      }, 3000); // 3 seconds
+    }
+
+    nameEl.addEventListener("click", showStudentId);
+    numberEl.addEventListener("click", showStudentId);
+  </script>
+</body>
+</html>

@@ -1,0 +1,295 @@
+:root {
+  --bg-light: #f5f7fa;
+  --bg-dark: #1c1c26;
+  --text-light: #1f1f1f;
+  --text-dark: #f1f1f1;
+  --card-light: #ffffff;
+  --card-dark: #2b2b35;
+  --accent: #3b82f6;
+  --accent-dark: #2563eb;
+  --radius: 16px;
+  --transition: 0.3s ease;
+}
+
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: var(--bg-light) url("lightmode.png") no-repeat center/cover;
+  color: var(--text-light);
+  transition: background var(--transition), color var(--transition);
+  overflow: hidden;
+  min-height: 100vh;
+}
+
+body.dark {
+  background: var(--bg-dark) url("darkmode.png") no-repeat center/cover;
+  color: var(--text-dark);
+}
+
+/* HEADER */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 22px;
+  background: var(--card-light);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(10px);
+  transition: background var(--transition);
+}
+body.dark header { background: var(--card-dark); }
+
+header h1 {
+  font-size: clamp(1.2rem, 2vw, 1.8rem);
+  margin: 0;
+  text-align: center;
+  flex: 1;
+}
+
+.home-btn-inline,
+#settingsBtn {
+  width: clamp(32px, 3vw, 40px);
+  height: clamp(32px, 3vw, 40px);
+  cursor: pointer;
+  transition: transform var(--transition);
+}
+.home-btn-inline:hover,
+#settingsBtn:hover {
+  transform: scale(1.1);
+}
+
+/* SETTINGS MENU */
+.settings-menu {
+  position: absolute;
+  top: 70px;
+  right: 18px;
+  background: var(--card-light);
+  border-radius: var(--radius);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  padding: 10px;
+  display: none;
+  flex-direction: column;
+  z-index: 999;
+  transition: all var(--transition);
+}
+body.dark .settings-menu { background: var(--card-dark); }
+.settings-menu button {
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: 1rem;
+  padding: 8px 16px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background var(--transition);
+}
+.settings-menu button:hover {
+  background: rgba(0,0,0,0.08);
+}
+body.dark .settings-menu button:hover {
+  background: rgba(255,255,255,0.08);
+}
+
+/* MOBILE SETTINGS FIX */
+@media (max-width: 768px) {
+  .settings-menu {
+    position: fixed;
+    right: 10px;
+    top: 70px;
+  }
+}
+
+/* MAIN AREA */
+main {
+  height: calc(100vh - 80px);
+  overflow-y: auto;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+}
+main::-webkit-scrollbar {
+  width: 6px;
+}
+main::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 4px;
+}
+
+/* ANNOUNCEMENT CARD */
+#announcement-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 22px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.announcement {
+  background: var(--card-light);
+  border-radius: var(--radius);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  padding: 22px;
+  transition: transform var(--transition), box-shadow var(--transition);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+}
+body.dark .announcement {
+  background: var(--card-dark);
+  box-shadow: 0 4px 10px rgba(255,255,255,0.05);
+}
+
+.announcement:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+}
+
+.date {
+  color: var(--accent);
+  font-size: clamp(0.85rem, 1.4vw, 1rem);
+}
+
+.title {
+  font-size: clamp(1rem, 1.8vw, 1.3rem);
+  font-weight: 600;
+}
+
+.details {
+  font-size: clamp(0.9rem, 1.6vw, 1.1rem);
+  line-height: 1.6;
+}
+
+/* ADD BUTTON */
+.add-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  background: var(--card-light);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  object-fit: contain;
+  padding: 8px;
+  z-index: 800;
+}
+body.dark .add-btn {
+  background: var(--card-dark);
+}
+.add-btn:hover {
+  transform: scale(1.08);
+  background: var(--accent-dark);
+}
+
+/* MODALS */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+}
+
+.modal-content {
+  background: var(--card-light);
+  border-radius: var(--radius);
+  padding: 24px;
+  width: 90%;
+  max-width: 420px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  animation: fadeIn 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+body.dark .modal-content {
+  background: var(--card-dark);
+}
+
+.modal-content input,
+.modal-content textarea,
+.modal-content select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+}
+.modal-actions button {
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.modal-actions button:hover {
+  background: var(--accent-dark);
+}
+
+.submit-img {
+  width: 48px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.submit-img:hover {
+  transform: scale(1.1);
+}
+
+/* DELETE BUTTON */
+.delete-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #ef4444;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 26px;
+  height: 26px;
+  font-size: 14px;
+  cursor: pointer;
+  display: none;
+  transition: transform 0.2s ease;
+}
+.delete-btn:hover {
+  transform: scale(1.15);
+  background: #dc2626;
+}
+
+/* RESPONSIVE GRID */
+@media (max-width: 700px) {
+  #announcement-container {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding-bottom: 80px;
+  }
+}
+@media (min-width: 701px) and (max-width: 1099px) {
+  #announcement-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1100px) {
+  #announcement-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

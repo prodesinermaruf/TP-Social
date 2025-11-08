@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <link rel="icon" type="image/png" href="image.png" />
+  <title>Announcements</title>
+  <meta name="google" content="notranslate">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">                
+  
+  <link rel="stylesheet" href="announc.css">
+</head>
+<body class="light">
+
+  <header>
+    <div class="header-left">
+      <img src="home.png" class="home-btn-inline" onclick="goHome()" alt="Home">
+    </div>
+    <h1>📢 Announcements</h1>
+
+    <div class="icons">
+      <img id="settingsBtn" src="settings.png" alt="Settings" onclick="toggleSettings()">
+    </div>
+  </header>
+
+  <!-- ⚙️ Settings Menu -->
+  <div id="settingsMenu" class="settings-menu">
+    <button onclick="openLogin()">🔐 Admin Login</button>
+  </div>
+
+  <main>
+    <div id="announcement-container">
+      <div class="announcement">
+        <span class="date">08 Nov 2025</span>
+        <h3 class="title">Welcome Announcement</h3>
+        <p class="details">This is a sample announcement for display.</p>
+        <button class="delete-btn" onclick="deleteAnnouncement(this)">✖</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- ➕ Add Button (Visible only when admin logged in) -->
+  <img src="add.png" alt="Add Announcement" id="addBtn" class="add-btn" style="display:none;">
+
+  <!-- 🪄 Add Modal -->
+  <div class="modal" id="addModal">
+    <div class="modal-content">
+      <h3>📝 নতুন Announcement যোগ করুন</h3>
+
+      <label>Category:</label>
+      <select id="typeSelect">
+        <option value="event">📅 Event</option>
+        <option value="notice">📜 Notice</option>
+      </select>
+
+      <input type="text" id="newTitle" placeholder="Title লিখুন...">
+      <textarea id="newContent" rows="3" placeholder="Details লিখুন..."></textarea>
+
+      <div class="modal-actions">
+        <img src="submit.png" alt="Submit" class="submit-img" onclick="addAnnouncement()">
+        <button onclick="closeModal()">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 🔐 Admin Login Modal -->
+  <div class="modal" id="loginModal">
+    <div class="modal-content">
+      <h3>🔐 Admin Login</h3>
+      <input type="password" id="adminPass" placeholder="Enter Admin Password">
+      <div class="modal-actions">
+        <button onclick="checkLogin()">Login</button>
+        <button onclick="closeLogin()">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 Tangail Polytechnic Social Manager</p>
+  </footer>
+
+  <script src="announc.js"></script>
+</body>
+</html>

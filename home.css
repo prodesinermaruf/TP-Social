@@ -1,0 +1,456 @@
+/* 🌍 Reset + Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden; /* 🔒 Scroll বন্ধ */
+}
+
+body {
+  transition: background 0.5s ease, color 0.3s ease;
+  background: url("slidelight.png") no-repeat center center/cover;
+  color: #222;
+  backdrop-filter: blur(6px);
+}
+
+/* 🌗 Dark & Light Mode */
+body.light {
+  background: url("slidelight.png") no-repeat center center/cover;
+  color: #222;
+  backdrop-filter: blur(6px);
+}
+
+body.dark {
+  background: url("slidedark.png") no-repeat center center/cover;
+  color: #fff;
+  backdrop-filter: blur(6px);
+}
+
+/* 🧭 Header */
+header {
+  background: rgba(33, 33, 33, 0.95);
+  color: #fff;
+  text-align: center;
+  padding: 12px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+header h1 {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* 🍔 Sidebar toggle button */
+.menu-toggle {
+  position: absolute;
+  left: 15px;
+  top: 10px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+  display: none;
+}
+
+/* 📦 Layout Container */
+.container {
+  display: flex;
+  height: 100vh;
+  padding-top: 50px;
+}
+
+/* 📁 Sidebar */
+.sidebar {
+  width: 240px;
+  background: rgba(255, 255, 255, 0.9); /* Light Mode Default */
+  color: #222;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-bottom: 20px;
+  transition: all 0.4s ease;
+  position: fixed;
+  top: 50px;
+  left: 0;
+  height: calc(100vh - 50px);
+  z-index: 9;
+  transform: translateX(0);
+}
+
+body.dark .sidebar {
+  background: rgba(45, 45, 45, 0.98);
+  color: #fff;
+}
+
+/* 👤 Profile */
+.profile {
+  text-align: center;
+  padding: 20px 10px;
+  border-bottom: 1px solid #ccc;
+  position: relative;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+body.dark .profile {
+  background: rgba(35, 35, 35, 0.9);
+  border-bottom: 1px solid #555;
+}
+
+.profile-icon {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  border: 2px solid #5da6ff;
+  margin-bottom: 8px;
+}
+
+.name {
+  font-weight: bold;
+  margin-bottom: 3px;
+  font-size: 15px;
+}
+
+.mobile {
+  font-size: 13px;
+  color: #777;
+}
+
+body.dark .mobile {
+  color: #ccc;
+}
+
+/* ⚙️ Settings icon */
+.settings-icon {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: #eee;
+  padding: 6px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+body.dark .settings-icon {
+  background: #3a3a3a;
+}
+
+.settings-icon:hover {
+  background: #5da6ff;
+  transform: rotate(20deg);
+}
+
+/* 🧭 Navigation Buttons */
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.sidebar button {
+  background: none;
+  border: none;
+  color: #333;
+  text-align: left;
+  padding: 12px 20px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+  border-left: 3px solid transparent;
+}
+
+body.dark .sidebar button {
+  color: #ccc;
+}
+
+.sidebar button:hover,
+.sidebar button.active {
+  background: rgba(93, 166, 255, 0.2);
+  color: #000;
+  border-left: 3px solid #5da6ff;
+}
+
+body.dark .sidebar button:hover,
+body.dark .sidebar button.active {
+  background: #3d3d3d;
+  color: #fff;
+}
+
+/* ⚙️ Settings Popup */
+.settings-popup {
+  display: none;
+  position: absolute;
+  right: 15px;
+  top: 120px;
+  background: rgba(47, 47, 47, 0.95);
+  border-radius: 8px;
+  width: 200px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  z-index: 20;
+  padding: 8px;
+}
+
+.settings-popup.show {
+  display: block;
+}
+
+.settings-popup button {
+  width: 100%;
+  background: none;
+  border: none;
+  color: #fff;
+  text-align: left;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.settings-popup button:hover {
+  background: #5da6ff;
+}
+
+/* 🧩 Main Content */
+main {
+  flex: 1;
+  margin-left: 240px;
+  padding: 40px;
+  overflow-y: auto;
+  transition: margin-left 0.4s ease;
+}
+
+.welcome {
+  text-align: center;
+  margin-top: 100px;
+}
+
+/* 🎛️ Slide Button */
+.slide-btn {
+  position: fixed;
+  top: 65px;
+  left: 10px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  z-index: 11;
+  transition: 0.3s;
+  filter: brightness(0.7); /* Light mode light look */
+}
+
+body.dark .slide-btn {
+  filter: brightness(1);
+}
+
+.slide-btn:hover {
+  transform: scale(1.05);
+}
+
+/* 📱 Responsive */
+@media (max-width: 900px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .sidebar {
+    transform: translateX(-100%);
+  }
+  .sidebar.active {
+    transform: translateX(0);
+  }
+
+  main {
+    margin-left: 0;
+    padding: 20px;
+  }
+
+  header h1 {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .profile-icon {
+    width: 55px;
+    height: 55px;
+  }
+  .sidebar button {
+    font-size: 14px;
+    padding: 10px 15px;
+  }
+  .settings-popup {
+    right: 10px;
+    width: 180px;
+  }
+}
+/* 🖥️ Large Desktop Scaling */
+@media (min-width: 1200px) {
+  header h1 {
+    font-size: 22px;
+  }
+
+  .profile-icon {
+    width: 80px;
+    height: 80px;
+  }
+
+  .settings-icon {
+    width: 38px;
+    height: 38px;
+    top: 12px;
+    right: 18px;
+  }
+
+  .sidebar button {
+    font-size: 17px;
+    padding: 14px 24px;
+  }
+
+  .slide-btn {
+    width: 55px;
+    height: 55px;
+    top: 75px;
+    left: 15px;
+  }
+
+  .menu-toggle {
+    font-size: 26px;
+  }
+}
+
+/* 🧠 Ultra Wide Screen (like 1600px+) */
+@media (min-width: 1600px) {
+  header h1 {
+    font-size: 26px;
+  }
+
+  .profile-icon {
+    width: 95px;
+    height: 95px;
+  }
+
+  .settings-icon {
+    width: 42px;
+    height: 42px;
+  }
+
+  .sidebar button {
+    font-size: 18px;
+    padding: 16px 26px;
+  }
+
+  .slide-btn {
+    width: 65px;
+    height: 65px;
+    top: 80px;
+    left: 18px;
+  }
+
+  .menu-toggle {
+    font-size: 30px;
+  }
+}
+/* 💬 Student ID Popup */
+.student-id-popup {
+  position: absolute;
+  bottom: -40px;
+  left: 50%;
+  transform: translateX(-50%) scale(0.9);
+  background: rgba(0, 0, 0, 0.85);
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  display: none;
+  opacity: 0;
+  transition: all 0.3s ease;
+  z-index: 50;
+}
+
+.student-id-popup.show {
+  display: block;
+  opacity: 1;
+  transform: translateX(-50%) scale(1);
+}
+
+.name, .mobile {
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.name:hover, .mobile:hover {
+  color: #5da6ff;
+}
+#realname {
+  font-size: 10px;
+  font-weight: 600;
+}
+#welcome{
+  font-size: xx-large;
+  color: #5da6ff;
+}
+/* 🧭 Navigation Buttons */
+.sidebar nav button {
+  background: rgba(0,0,0,0.15); /* 🌞 Light mode transparent black */
+  border: none;
+  color: #000;
+  text-align: left;
+  padding: 12px 20px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+  border-left: 3px solid transparent;
+  backdrop-filter: blur(4px);
+}
+
+body.dark .sidebar nav button {
+  background: rgba(255,255,255,0.15); /* 🌙 Dark mode transparent white */
+  color: #fff;
+}
+
+.sidebar nav button:hover,
+.sidebar nav button.active {
+  background: rgba(93,166,255,0.25);
+  border-left: 3px solid #5da6ff;
+  transform: scale(1.02);
+}
+.home-btn img {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 0 6px rgba(0, 255, 128, 0.6));
+  border-radius: 50%;
+}
+#b12{
+  background: rgba(107, 177, 61, 0.267);
+}/* ===============================
+   🔹 Custom Home Button Style
+   =============================== */
+#b12 {
+  background: rgba(107, 177, 61, 0.267);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(107, 177, 61, 0.4);
+  border-radius: 12px;
+  padding: 10px 16px;
+  color: #1a1a1a;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+#b12:hover {
+  background: rgba(107, 177, 61, 0.45);
+  transform: scale(1.05);
+}
