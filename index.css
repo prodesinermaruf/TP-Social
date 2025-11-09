@@ -139,3 +139,107 @@ html, body {
   z-index: 1;
   pointer-events: none;
 }
+#stun{background : #2b292981;
+color:#2ecc71; font-weight:bold;
+padding:10px;margin: -20px -40px 20px -40px;
+border-radius:8px;
+}
+
+
+
+
+
+
+
+
+
+
+.password-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 280px;
+}
+
+.password-wrapper .id-input {
+  width: 100%;
+  padding: 10px 42px 10px 12px;
+  font-size: 15px;
+  border: 1px solid #dadce0;
+  border-radius: 6px;
+  height: 40px;
+  outline: none;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.password-wrapper .id-input:focus {
+  border-color: #1a73e8;
+  box-shadow: 0 0 0 2px rgba(26, 115, 232, 0.1);
+}
+
+.toggle-visibility {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-55%); /* আগে -50% ছিল, এখন সামান্য উপরে */
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.eye-icon {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: #5f6368;
+  stroke-width: 2;
+  transition: stroke 0.2s ease;
+}
+.toggle-visibility:hover .eye-icon {
+  stroke: #1a73e8;
+}.eye-icon {
+  width: 22px;
+  height: 22px;
+  fill: #555; /* default gray */
+  transition: fill 0.3s ease;
+}
+
+.toggle-visibility:hover .eye-icon {
+  fill: #1a73e8; /* hover এ blue হবে */
+}
+.password-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+}
+
+.password-wrapper input {
+  width: 100%;
+  padding-right: 40px; /* eye button-এর জায়গা রাখে */
+}
+
+.toggle-visibility {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(calc(-50% - 7px)); /* 👈 এখানে 7px উপরে উঠবে */
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.eye-icon {
+  width: 22px;
+  height: 22px;
+  fill: #555;
+  transition: fill 0.3s ease;
+}
+
+.toggle-visibility:hover .eye-icon {
+  fill: #1a73e8;
+}
