@@ -1,5 +1,6 @@
 // ===============================
-// Final script.js for DailyClassBoard (Dark/Light BG Image Version)
+// Final event.js for DailyClassBoard (Dark/Light BG Image Version)
+// Default Language: English 🌐
 // ===============================
 
 // ---------- Element references ----------
@@ -8,7 +9,7 @@ const settingsPanel = document.getElementById("settingsPanel");
 const settingsOverlay = document.getElementById("settingsOverlay");
 const closeSettings = document.getElementById("closeSettings");
 
-const deBtn = document.getElementById("darkModeBtn");
+const darkModeBtn = document.getElementById("darkModeBtn");
 const lightModeBtn = document.getElementById("lightModeBtn");
 const langBtn = document.getElementById("langBtn");
 const adminLoginBtn = document.getElementById("adminLoginBtn");
@@ -58,9 +59,9 @@ let data = [
   },
 ];
 
-let currentUser = "guest"; // 'guest' / 'student' / 'admin'
-let currentView = "student"; // 'student' or 'admin'
-let isBangla = true; // language
+let currentUser = "guest";
+let currentView = "student";
+let isBangla = false; // ⬅️ Default language set to English
 let nextId = 3;
 let pendingDeleteId = null;
 
@@ -112,8 +113,6 @@ function closeSettingsPanel() {
   settingsPanel.classList.remove("open");
   settingsOverlay.style.display = "none";
 }
-
-// auto close when any button clicked
 document.querySelectorAll("#settingsPanel button").forEach((btn) =>
   btn.addEventListener("click", closeSettingsPanel)
 );
@@ -139,10 +138,8 @@ function applyTheme(theme) {
   settingsPanel.style.backgroundImage = `url('${bgImg}')`;
   settingsPanel.style.backgroundSize = "cover";
 }
-
 darkModeBtn.addEventListener("click", () => applyTheme("dark"));
 lightModeBtn.addEventListener("click", () => applyTheme("light"));
-
 window.addEventListener("load", () => {
   const saved = localStorage.getItem("theme") || "light";
   applyTheme(saved);
@@ -153,7 +150,6 @@ langBtn.addEventListener("click", () => {
   isBangla = !isBangla;
   refreshLanguageUI();
 });
-
 function refreshLanguageUI() {
   document.querySelector("header h1").textContent = t("title");
   darkModeBtn.textContent = t("dark");
@@ -173,11 +169,9 @@ studentLoginBtn.addEventListener("click", () => {
   usernameInput.value = "student";
   passwordInput.value = "";
 });
-
 loginSubmit.addEventListener("click", () => {
   const u = usernameInput.value.trim();
   const p = passwordInput.value.trim();
-
   if (u === "admin" && p === "1234") {
     currentUser = "admin";
     currentView = "admin";
@@ -193,7 +187,6 @@ loginSubmit.addEventListener("click", () => {
   }
   updateView();
 });
-
 loginModal.addEventListener("click", (e) => {
   if (e.target === loginModal) loginModal.style.display = "none";
 });
@@ -212,7 +205,6 @@ viewBtn.addEventListener("click", () => {
   } else currentView = "student";
   updateView();
 });
-
 function updateView() {
   if (currentUser === "admin" && currentView === "admin") {
     viewBtn.textContent = t("viewAdmin");
@@ -387,9 +379,10 @@ function renderNotices() {
 refreshLanguageUI();
 renderNotices();
 updateView();
-// Ensure settings panel is always closed on start
 settingsPanel.classList.remove("open");
-settingsOverlay.style.display = "none";// 🏠 Go Home Function
+settingsOverlay.style.display = "none";
+
+// 🏠 Go Home Function
 function goHome() {
   window.location.href = "home.html";
 }
