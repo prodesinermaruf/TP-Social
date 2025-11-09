@@ -1,21 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="icon" type="image/png" href="image.png" />
-   <title>TP Social Manager Login</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <link rel="stylesheet" href="index.css">
+  <title>Institute Social Manager</title>
+  <link rel="stylesheet" href="index.css">
 </head>
 <body>
   <header>
     <div class="container">
-      <div class="menu-icon">
-        <span></span>
-        <span></span>
-        <span></span>
+    
+        <span></span><span></span><span></span>
       </div>
-      <div class="title">Tangail Polytechnic Social Manager</div>
+      <div class="title">INSTITUTE SOCIAL MANGER</div>
     </div>
   </header>
 
@@ -24,40 +21,16 @@
 
     <div class="login-container">
       <form id="loginForm">
-        <div class="selection-group">
-          <select id="department">
-            <option value="">Select Department</option>
-            <option value="Computer">Computer</option>
-            <option value="Electrical">Electrical</option>
-            <option value="Civil">Civil</option>
-          </select>
-
-          <select id="semester">
-            <option value="">Select Semester</option>
-            <option value="1st">1st</option>
-            <option value="2nd">2nd</option>
-            <option value="3rd">3rd</option>
-            <option value="4th">4th</option>
-          </select>
-
-          <select id="shift">
-            <option value="">Select Shift</option>
-            <option value="1st">1st</option>
-            <option value="2nd">2nd</option>
-          </select>
-        </div>
-
-        <button type="submit" class="enter-btn main-enter-btn">Enter Class Space</button>
-        <div class="separator">...or enter with student ID</div>
-
-        <div class="student-id-section">
-          <input type="text" id="studentID" class="id-input" placeholder="Enter ID Here...">
-          <button type="button" id="enterById" class="enter-btn">Enter</button>
-        </div>
+        <input type="text" id="studentID" class="id-input" placeholder="Input key here...">
+        <button type="button" id="enterById" class="enter-btn">Enter Class Space</button>
         <p id="loginMsg"></p>
       </form>
     </div>
   </main>
+
+  <footer>
+    <p>© 2025 FuturePath Institute. All rights reserved. Empowering minds, Shaping futures. Tangail, Bangladesh | call: +880-1234-567890 | info@FuturePath.edu</p>
+  </footer>
 
   <script src="index.js"></script>
 </body>
