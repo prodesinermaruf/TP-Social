@@ -147,3 +147,4 @@ setTimeout(() => {
 }, 800);
 
 document.getElementById("continueBtn").addEventListener("click", handleContinueAction);
+
