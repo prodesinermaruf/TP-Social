@@ -145,6 +145,4 @@ setTimeout(() => {
   setupHoverToggle("password1", '.toggle-visibility[data-target="password1"]');
   setupHoverToggle("password2", '.toggle-visibility[data-target="password2"]');
 }, 800);
-
 document.getElementById("continueBtn").addEventListener("click", handleContinueAction);
-
